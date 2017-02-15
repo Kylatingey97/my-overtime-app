@@ -15,12 +15,12 @@ describe 'admin dashboard' do
     expect(current_path).to eq(root_path)
   end
 
-    it 'cannot be reached by an admin users' do
+  it 'can be reached by an admin users' do
     admin_user = FactoryGirl.create(:admin_user)
     login_as(admin_user, :scope => :user)
 
     visit admin_root_path
 
-    expect(current_path).to eq(root_path)
+    expect(current_path).to eq(admin_root_path)
   end
 end
