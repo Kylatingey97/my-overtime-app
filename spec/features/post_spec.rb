@@ -30,7 +30,7 @@ describe 'navigate' do
       post1 = Post.create(date: Date.today, rationale: "asdf", user_id: @user.id)
       post2 = Post.create(date: Date.today, rationale: "asdf", user_id: @user.id)
 
-      other_user = User.create(first_name: 'Non', last_name: 'Authorized', email: "nonauth@example.com", password: 'asdfasdf', password_confirmation: 'asdfasdf') 
+      other_user = User.create(first_name: 'Non', last_name: 'Authorized', email: "nonauth@example.com", password: "asdfasdf", password_confirmation: "asdfasdf")
       post_from_other_user = Post.create(date: Date.today, rationale: "This post shouldn't be seen", user_id: other_user.id)
 
       visit posts_path
@@ -51,7 +51,7 @@ describe 'navigate' do
   describe 'delete' do
     it 'can be deleted' do
       @post = FactoryGirl.create(:post)
-      # TODO Refactor
+      # TODO refactor
       @post.update(user_id: @user.id)
       visit posts_path
 
