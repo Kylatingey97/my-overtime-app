@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  devise_for :users
   namespace :admin do
     resources :users
 resources :posts
@@ -12,3 +11,4 @@ resources :admin_users
   devise_for :users, skip: [:registrations]
   root to: 'static#homepage'
 end
+
